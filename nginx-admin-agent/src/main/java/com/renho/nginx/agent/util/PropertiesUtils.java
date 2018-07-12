@@ -39,7 +39,8 @@ public class PropertiesUtils {
                 configPath = PropertiesUtils.class.getClassLoader().getResource("nginxagent.properties").getFile();
             }
             logger.info("start with properties: " + configPath);
-            props.load(new FileInputStream(configPath));
+            in = new FileInputStream(configPath);
+            props.load(in);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
